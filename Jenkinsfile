@@ -11,7 +11,7 @@ node( 'master' ) {
           script: "git rev-list $currentCommit \"^$lastSuccessfulCommit\"",
           returnStdout: true
         ).split('\n')
-        println "Commits are: $commits"
+        println "Commits are: $lastSuccessfulCommit"
       }
     }
   }
