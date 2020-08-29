@@ -1,9 +1,8 @@
 // -*- mode: groovy -*-
 // vim: set filetype=groovy :
 
-node( 'any' ) {
+stages{
   stage( "Phase 1" ) {
-    sshagent( credentials: [ 'some_creds' ] ) {
       checkout scm
       def lastSuccessfulCommit = getLastSuccessfulCommit()
       def currentCommit = commitHashForBuild( currentBuild.rawBuild )
@@ -16,7 +15,6 @@ node( 'any' ) {
       }
     }
   }
-}
 
 def getLastSuccessfulCommit() {
   def lastSuccessfulHash = null
