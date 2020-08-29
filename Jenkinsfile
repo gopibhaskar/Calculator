@@ -1,7 +1,7 @@
 // -*- mode: groovy -*-
 // vim: set filetype=groovy :
 
-stages{
+node( 'master' ) {
   stage( "Phase 1" ) {
       checkout scm
       def lastSuccessfulCommit = getLastSuccessfulCommit()
